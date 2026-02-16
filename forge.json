@@ -1,0 +1,54 @@
+{
+  "project_name": "Ledger",
+  "description": "Receipt and expense tracking system with OCR and NLP extraction",
+  "version": "1.0.0",
+  "backend": {
+    "language": "python",
+    "version": "3.12+",
+    "framework": "fastapi",
+    "entry_module": "app.main",
+    "test_framework": "pytest",
+    "test_dir": "tests",
+    "dependency_file": "requirements.txt",
+    "venv_path": ".venv",
+    "async_enabled": true,
+    "external_apis": [
+      "google-cloud-vision",
+      "openai"
+    ]
+  },
+  "frontend": {
+    "enabled": true,
+    "language": "typescript",
+    "framework": "react",
+    "dir": "web",
+    "build_tool": "vite",
+    "build_cmd": "build",
+    "test_cmd": "test",
+    "package_manager": "npm",
+    "node_version": "20+"
+  },
+  "database": {
+    "engine": "postgresql",
+    "version": "15+",
+    "provider": "neon",
+    "driver": "asyncpg",
+    "migration_dir": "db/migrations"
+  },
+  "deployment": {
+    "platform": "render",
+    "backend_service_type": "web_service",
+    "frontend_service_type": "static_site",
+    "containerized": false
+  },
+  "architecture": {
+    "pattern": "clean_architecture",
+    "layers": [
+      "api",
+      "services",
+      "repositories",
+      "models"
+    ],
+    "strict_boundaries": true
+  }
+}
